@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: Agentic Data Analysis
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Robert
+    name-particle: Robert
+    family-names: Edwards
+    email: raedwards@gmail.com
+    affiliation: Flinders University
+    orcid: 'https://orcid.org/0000-0001-8383-8949'
+doi: 10.5281/zenodo.21833903
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21833903
+    description: Zenodo repository of release 0.1
+repository-code: 'https://github.com/linsalrob/AI_Data_Analysis'
+abstract: >-
+  A template for AI-enabled agentic data analysis
+keywords:
+  - metagenome
+  - DNA sequencing
+  - microbiome
+  - bacteria
+  - virus
+license: MIT
+
