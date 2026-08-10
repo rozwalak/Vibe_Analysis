@@ -1,8 +1,18 @@
-# Agentic Scientific Discovery with Codex
+# Vibe Analysis with Codex
 
 This repository is a template for using Codex as a scientific collaborator rather than only as a code generator. It gives the agent a scientific question, an evidence-driven plan, durable project memory, and explicit rules for handling data, uncertainty, reproducibility, and reporting.
 
 Our example concerns population genomics and remote-family discovery for a bacteriophage. Replace that scientific content with your own project, but retain the separation of responsibilities among the files. That separation is what helps an agent remain scientifically directed over a long investigation.
+
+## Set codex running with this repository structure, and then give it this prompt:
+
+```
+Read AGENTS.md, SCIENTIFIC_BRIEF.md, STATUS.md, and DECISIONS.md if they are
+present. If they are not currently present, we will make them as we proceed.
+Summarise the current scientific state in no more than ten lines, then
+continue with the highest-value unresolved analysis. Do not begin by
+refactoring code.
+```
 
 ## How the repository works
 
