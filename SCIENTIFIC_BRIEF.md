@@ -1,10 +1,10 @@
-# SCIENTIFIC BRIEF: The phage Population Atlas and Remote-Family Discovery
+# SCIENTIFIC BRIEF: Bacteriophage codiversification with humans
 
 ## Project summary
 
-We have identified a contig, provisionally named **phage**, that is broadly detectable across a collection of cystic fibrosis airway metagenomes. Initial read mapping against `phage.fasta` found phage-like sequence in many MGI short-read and Oxford Nanopore metagenomes, including multiple samples with broad or complete genome coverage.
+We have identified a bacteriophage family, provisionally named **calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
 
-The scientific objective is now to move beyond presence/absence and construct a **phage Population Atlas**. The atlas should describe the diversity, persistence, genome structure, gene content, and evolutionary relationships of phage-like phages within this cohort. It should also provide a validated framework for discovering more divergent phage relatives in other assembled metagenomes and public viral-genome collections.
+The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. The atlas should describe the diversity, persistence, genome structure, gene content, and evolutionary relationships of phage-like phages within this cohort. It should also provide a validated framework for discovering more divergent phage relatives in other assembled metagenomes and public viral-genome collections.
 
 The primary objective is the **scientific answer**, not the software itself. Code should be reproducible, modular, testable, and documented, but implementation decisions should be driven by their ability to answer the biological questions.
 
