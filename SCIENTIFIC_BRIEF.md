@@ -41,7 +41,11 @@ results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz
 results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz.tbi
 
 results/Ottoni2021/ERS6256686/coverage/ERS6256686_covered_positions.tsv
+results/Ottoni2021/ERS6256686/coverage/ERS6256686_cov_plot.png 
 
+results/Ottoni2021/ERS6256686/mapdamage2/
+
+results/Ottoni2021/Ottoni2021_summary.tsv
 
 ```
 
