@@ -13,21 +13,21 @@ The primary objective is the **bioinformatic pipeline**. Code should be reproduc
 The project directory contains or links to the following resources:
 
 ```text
-input/calcy_complete_reoriented.panman #pangenome generated before using panMAN
-input/calcy_complete_reoriented.panman.idx #index to reuse
-input/
+input/calcy_complete_reoriented.panman 
+input/calcy_complete_reoriented.panman.idx
+input/metagenome_assembly-Eisenhofer2020.tsv
+input/metagenome_assembly-Ottoni2021.tsv
 
 ```
 
 Expected meanings:
 
-- `inputs/phage.fasta`: the current 45.65-kb phage reference contig.
-- `inputs/MGI/no_human`: paired-end MGI short-read metagenomes after human-read removal.
-- `inputs/ONT_MinION/no_human`: Oxford Nanopore MinION metagenomes after human-read removal.
-- `inputs/ONT_PromethION/no_human`: Oxford Nanopore PromethION metagenomes after human-read removal.
-- `inputs/Metadata/`: cohort and sample metadata.
+- `input/calcy_complete_reoriented.panman`: Pangenome generated before using panMAN.
+- `input/calcy_complete_reoriented.panman.idx`: Panmap index to reuse.
+- `input/metagenome_assembly-Eisenhofer2020.tsv`: Table with paths to paired-end data processed with nfcore/eager. 
+- `input/metagenome_assembly-Ottoni2021.tsv`: Table with paths to single-end data processed with nfcore/eager. 
 
-Existing mapping outputs may include:
+Expected outputs: 
 
 ```text
 inputs/vijiphage_mapping_summary.tsv
