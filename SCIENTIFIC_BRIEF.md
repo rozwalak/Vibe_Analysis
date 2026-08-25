@@ -2,90 +2,21 @@
 
 ## Project summary
 
-We have identified a bacteriophage family, provisionally named **Calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
+We have identified a bacteriophage family, provisionally named **calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
 
-The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. The atlas should describe the diversity, persistence, genome structure, gene content, and evolutionary relationships of phage-like phages within this cohort. It should also provide a validated framework for discovering more divergent phage relatives in other assembled metagenomes and public viral-genome collections.
+The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. Specifically, we want to use a pangenome of complete calcyvirus genomes constructed in panMAN (https://turakhia.ucsd.edu/panman/index.html) and align reads to the pangenome using panmap (https://amkram.github.io/panmap/), which allows genotyping and assembly of a consensus sequence. 
 
-The primary objective is the **scientific answer**, not the software itself. Code should be reproducible, modular, testable, and documented, but implementation decisions should be driven by their ability to answer the biological questions.
-
----
-
-## Central scientific hypothesis
-
-> phage is not a single invariant genome, but the reference member of a diverse, persistent, and potentially widespread phage population whose members can be recognised at multiple levels of evolutionary divergence.
-
-We expect the phage population to include:
-
-- closely related strains detectable by nucleotide read mapping;
-- patient-specific or longitudinal lineages;
-- recombinant or mosaic genomes;
-- partial or divergent relatives detectable through shared proteins and genome architecture;
-- more remote family members that may no longer align well at the nucleotide level but occupy a related region of protein-set embedding space.
-
----
-
-## Primary scientific questions
-
-### 1. Is phage one phage or a population of related phages?
-
-Determine whether the mapped signal represents:
-
-- a nearly invariant genome present in many samples;
-- multiple closely related strains;
-- several discrete phage lineages;
-- a broader family of mosaic phages sharing only part of the reference genome.
-
-### 2. Does phage persist within individual patients?
-
-For patients with longitudinal samples, determine whether:
-
-- the same lineage persists through time;
-- within-patient evolution is detectable;
-- lineages are replaced;
-- multiple lineages coexist;
-- highly similar genomes occur in unrelated patients.
-
-### 3. Which genomic regions are conserved and which are variable?
-
-Identify:
-
-- core and accessory genes;
-- conserved genome modules;
-- hypervariable loci;
-- recombination breakpoints;
-- gene gain and loss;
-- structural variants;
-- candidate host-range and defence-evasion genes.
-
-### 4. Can protein-set embeddings recover remote phage relatives?
-
-Evaluate whether a pretrained Protein Set Transformer or related genome-level protein embedding method can identify phage-family members when nucleotide similarity becomes weak.
-
-### 5. When does AI add information beyond conventional methods?
-
-Benchmark the contribution of protein language models and Protein Set Transformers against:
-
-- nucleotide read mapping;
-- whole-genome nucleotide similarity;
-- translated protein homology;
-- gene-content similarity;
-- mean-pooled protein embeddings;
-- gene-order and synteny measures.
-
-The project must quantify where AI improves sensitivity or biological resolution, rather than assuming that it does.
-
----
+The primary objective is the **bioinformatic pipeline**. Code should be reproducible, modular, testable, and documented (snakemake) but implementation decisions should be driven by their ability to answer the biological questions.
 
 ## Available data
 
 The project directory contains or links to the following resources:
 
 ```text
-inputs/phage.fasta
-inputs/work/MGI/
-inputs/ONT_MinION/
-inputs/ONT_PromethION/
-inputs/Metadata/
+input/calcy_complete_reoriented.panman #pangenome generated before using panMAN
+input/calcy_complete_reoriented.panman.idx #index to reuse
+input/
+
 ```
 
 Expected meanings:
