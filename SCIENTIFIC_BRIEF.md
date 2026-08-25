@@ -48,8 +48,12 @@ results/Ottoni2021/ERS6256686/mapdamage2/5pCtoT_freq.txt
 results/Ottoni2021/ERS6256686/mapdamage2/Fragmisincorporation_plot.pdf 
 
 results/Ottoni2021/Ottoni2021_summary.tsv
-
 ```
+Expected meanings:
+
+- `results/Ottoni2021/ERS6256686/panmap/ERS6256686.bam`: Mapping output.
+- `results/Ottoni2021/ERS6256686/panmap/ERS6256686.consensus.fa`: Genome with consensus sequence after genotyping. This is the most important output, which will be used for downstream processing. 
+
 
 Do not assume that every optional output exists. Discover inputs explicitly and fail clearly when required data are absent.
 
