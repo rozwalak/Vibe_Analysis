@@ -17,7 +17,6 @@ input/calcy_complete_reoriented.panman
 input/calcy_complete_reoriented.panman.idx
 input/metagenome_assembly-Eisenhofer2020.tsv
 input/metagenome_assembly-Ottoni2021.tsv
-
 ```
 
 Expected meanings:
@@ -30,10 +29,24 @@ Expected meanings:
 Expected outputs: 
 
 ```text
-inputs/vijiphage_mapping_summary.tsv
-results/bam/
-results/coverage/
-results/stats/
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.bam
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.bam.bai
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.consensus.fa
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.mpileup
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.placement.tsv
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.ref.fa
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.ref.fa.fai
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz
+results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz.tbi
+```
+
+```text
+final:
+results/summary.tsv
+results/Ottoni2021/ERS6256686/panmap/
+
+
 ```
 
 Do not assume that every optional output exists. Discover inputs explicitly and fail clearly when required data are absent.
