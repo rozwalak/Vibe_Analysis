@@ -39,12 +39,8 @@ results/Ottoni2021/ERS6256686/panmap/ERS6256686.ref.fa.fai
 results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf
 results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz
 results/Ottoni2021/ERS6256686/panmap/ERS6256686.vcf.gz.tbi
-```
 
-```text
-final:
-results/summary.tsv
-results/Ottoni2021/ERS6256686/panmap/
+results/Ottoni2021/ERS6256686/coverage/ERS6256686_covered_positions.tsv
 
 
 ```
