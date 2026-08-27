@@ -1,10 +1,10 @@
-# SCIENTIFIC BRIEF: Bacteriophage codiversification with humans
-
+# Project name: Bacteriophage codiversification with humans
+Based on Edwards' lab template: 
 ## Project summary
 
 We have identified a bacteriophage family, provisionally named **calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
 
-The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. Specifically, we want to use a pangenome of complete calcyvirus genomes constructed in panMAN (https://turakhia.ucsd.edu/panman/index.html) and align reads to the pangenome using panmap (https://amkram.github.io/panmap/), which allows genotyping and assembly of consensus genome sequences to build a time-calibrated bayesian phylogenetic tree. 
+The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. Specifically, we want to use a pangenome of complete calcyvirus genomes constructed in panMAN (https://turakhia.ucsd.edu/panman/index.html) and align reads to the pangenome using panmap (https://amkram.github.io/panmap/), which allows genotyping and assembly of consensus genome sequences to build a time-calibrated Bayesian phylogenetic tree. 
 
 The primary objective is the **bioinformatic pipeline**. Code should be reproducible, modular, testable, and documented (snakemake) but implementation decisions should be driven by their ability to answer the biological questions.
 
@@ -78,6 +78,46 @@ Building a snakemake pipeline to achieve expected results. Each step should be e
 Inspect existing input files and read documentation of software that will be implemented (snakemake, panmap, samtools etc.).
 
 # Step 2 
+Prepare  the overall workflow structure in Snakemake. 
 
+# Step 3
+Implement: panmap. 
+This is how I would run it manually in the terminal for one sample (remember that paired- and single-end fastq files should be implemented differently): 
+```
+panmap calcy_complete_reoriented.panman ERS6256686_0.fastq.gz -i calcy_complete_reoriented.panman.idx -t 8 -o ERS6256686 -a bwa --dedup --min-seed-quality 20 -k 15 -s 8 -l 1
+```
+# Step 4
+Check if panmap is implemented correctly. 
 
-Do not merely execute the proposed plan mechanically. Inspect the data, compatibility of conda environments, test assumptions, identify unexpected patterns, and update the pipeline to make it simple, reproducible in different systems (PC vs server and cluster), efficient, and self-explanatory at each stage.
+# Step 5
+Implement running script bam_cov_filter.sh
+
+# Step 6
+Implement running script plot_cov.py
+
+# Step 7
+Check if the implementation of the two previous steps was successful. Remember that both need different packages that should be installed in separate conda environments.
+
+# Step 8
+Implement: MapDamage2
+Example for one sample:
+```
+mapDamage -i ERR3579827.bam -r ERR3579827.ref.fa -d ERR3579827_mapdamage
+```
+# Step 9
+Check if MapDamage2 is implemented correctly. 
+
+# Step 10
+When all samples for the specific project (e.g. metagenome_assembly-Ottoni2021.tsv) are done, make a new script that will summarise all results. Specifically, I expect that script will calculate horizontal coverage for each genome in the specific sample as % using info from *_covered_positions.tsv. Then, for each genome, extract information about damage at the first position from 5'.
+
+Example (5pCtoT_freq.txt):
+pos	5pC>T
+1	0.246117399315609
+
+The script should extract this information for each sample. Again: % of horizontal coverage with a minimum 3 reads mapped to a specific position and damage for te first position. 
+Calculate it across all samples in the project and save it in tabular form, e.g. Ottoni2021_summary.tsv
+
+# Step 11
+Inspect the whole pipeline, and write a detailed report on what was done and where the problems were encountered.
+
+Do not merely execute the proposed plan mechanically. Inspect the data, check conda environment compatibility, test assumptions, identify unexpected patterns, and update the pipeline to keep it simple, reproducible across systems (PC vs server and cluster), efficient, and self-explanatory at each stage.
