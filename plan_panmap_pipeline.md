@@ -78,7 +78,7 @@ Building a snakemake pipeline to achieve expected results. Each step should be e
 Inspect existing input files and read documentation of software that will be implemented (snakemake, panmap, samtools etc.).
 
 ## Step 2 
-Prepare  the overall workflow structure in Snakemake. 
+Prepare  the overall workflow structure in Snakemake. Remember about config file to enable ease change all parameters implemented in the pipeline.
 
 ## Step 3
 Implement: panmap. 
