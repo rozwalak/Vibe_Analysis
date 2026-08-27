@@ -1,12 +1,12 @@
-# Project name: Bacteriophage codiversification with humans
-Based on Edwards' lab template: 
+# Project: Bacteriophage codiversification with humans
+Based on Edwards' lab template: https://github.com/linsalrob/Vibe_Analysis 
 ## Project summary
 
-We have identified a bacteriophage family, provisionally named **calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
+We have identified a bacteriophage family, provisionally named **calcyviruses**, that is broadly detectable across a collection of human dental calculus metagenomes. Our initial analysis with vContact2 identified this family as very distinct from other Caudoviricetes bacteriophages, and iPhoP predictions indicate the host is the Desulfobulbus oralis pathobiont. Preliminary search across millions of phage genomes from MetaVR and a collection of proteins from 34 mammalian species suggests a direct switch from environmental sources to the human oral cavity, as we did not find any signal from these phage sequences in mammals other than Neanderthals and Anatomically Modern Humans. 
 
-The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. Specifically, we want to use a pangenome of complete calcyvirus genomes constructed in panMAN (https://turakhia.ucsd.edu/panman/index.html) and align reads to the pangenome using panmap (https://amkram.github.io/panmap/), which allows genotyping and assembly of consensus genome sequences to build a time-calibrated Bayesian phylogenetic tree. 
+The scientific objective is now to move beyond genomic description of the new family and conduct a **phylogenomic analysis of ancient bacteriophages from the last 100,000 years**. Specifically, we want to use a pangenome of complete calcyvirus genomes constructed in panMAN (https://turakhia.ucsd.edu/panman/index.html) and align reads to the closest reference from the pangenome using panmap (https://amkram.github.io/panmap/), which allows genotyping and assembly of consensus ancient genome sequences to build a time-calibrated Bayesian phylogenetic tree. This is a goal, other parts of this project are not a goal of this plan.
 
-The primary objective is the **bioinformatic pipeline**. Code should be reproducible, modular, testable, and documented (snakemake) but implementation decisions should be driven by their ability to answer the biological questions.
+The primary objective is the **bioinformatic pipeline**. Code should be reproducible, modular, testable, and documented (snakemake), but implementation decisions should be driven by their ability to answer the biological questions.
 
 ## Available data
 
@@ -90,7 +90,7 @@ panmap calcy_complete_reoriented.panman ERS6256686_0.fastq.gz -i calcy_complete_
 Check if panmap is implemented correctly. 
 
 ## Step 5
-Implement running script bam_cov_filter.sh
+Implement running the script bam_cov_filter.sh
 
 ## Step 6
 Implement running script plot_cov.py
@@ -120,4 +120,5 @@ Calculate it across all samples in the project and save it in tabular form, e.g.
 ## Step 11
 Inspect the whole pipeline, and write a detailed report on what was done and where the problems were encountered.
 
+## Final remarks
 Do not merely execute the proposed plan mechanically. Inspect the data, check conda environment compatibility, test assumptions, identify unexpected patterns, and update the pipeline to keep it simple, reproducible across systems (PC vs server and cluster), efficient, and self-explanatory at each stage.
