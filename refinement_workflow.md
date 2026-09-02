@@ -1,4 +1,4 @@
-# Refinement of plan_panmap_pipeline.md
+# First refinement of plan_panmap_workflow.md
 
 First: Overview of the pipeline, scripts and output files. 
 
