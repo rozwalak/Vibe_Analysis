@@ -108,7 +108,12 @@ Columns in the output SRS473742_stats.tsv file:
 ## Change #6
 Here, I ask for changes in the visualisation of mapping_statistics.
 
+## Change #7
+Change Warinner2014_summary.tsv
 
+In a new version, it should be a combination of outputs from pyDamage (results/Warinner2014/SRS473742/pydamage/pydamage_results.csv) and mapping_statistics (/results/Warinner2014/SRS473742/mapping_statistics/SRS473742_stats.tsv). 
+
+The first column should be "sample" so e.g. SRS473742, then all columns from SRS473742_stats.tsv and from pydamage_results only "CtoT-0","CtoT-1","CtoT-2","CtoT-3","CtoT-4","CtoT-5","CtoT-6","CtoT-7","CtoT-8","CtoT-9","predicted_accuracy","pvalue".
 
 Some ideas: 
 To the coverage plot, add an annotated genome below the plot. To the plot add a slightly transparent histogram filled with mean read ANI in the specific window; it allows you to estimate whether poorly mapped regions also have low read ANI values. 
