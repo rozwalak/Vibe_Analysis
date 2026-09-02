@@ -36,7 +36,7 @@ samtools calmd -@ 8 -b Warinner2014/panmap/SRS473742.bam Warinner2014/panmap/SRS
 mv SRS473742.tmp.bam SRS473742.bam && \
 samtools index -@ 8 SRS473742.bam
 ```
-Ideally, do not create a separate rule but incorporate it into the existing panmap rule if possible. If it's not a good solution, create a new rule in snakemake.
+Ideally, don't create a separate rule; incorporate it into the existing panmap rule if possible. If it's not a good solution, create a new rule in snakemake.
 
 ## Change #4
 Replace MapDamage2 with pyDamage (https://pydamage.readthedocs.io/en/latest/), which is faster. 
@@ -50,7 +50,7 @@ Comment: The BAM file must be corrected to include MD tags.
 ## Change #5
 Create comprehensive statistics of mapped reads (in bam file), similar to the analysis run by bam-filter (https://github.com/genomewalker/bam-filter). However, due to problems with calculating some values, I would like to re-implement this here instead of running bam-filter.  
 
-In the current version, this analysis is partially run in the coverage rule. The coverage rule should be expanded and renamed to "mapping_statistics". However, the coverage plot and covered_positions.tsv should be generated. 
+In the current version, this analysis is partially run in the coverage rule. The coverage rule should be expanded and renamed to "mapping_statistics". Output folder should be "mapping_statistics". However, the coverage plot and covered_positions.tsv should be generated as before, although below I will ask for some changes to the coverage plot. 
 
 ```text
 samtools view -F 2308 Warinner2014/panmap/SRS473742.bam | \
@@ -82,7 +82,7 @@ awk '{
 ```
 This is just an example. Adapt it to produce the expected results described below: 
 
-Columns in the output tsv file: 
+Columns in the output SRS473742_stats.tsv file: 
 - reference [ID of the reference genome]
 - reference_length [length of the reference genome]
 - n_reads [aligned reads in the bam file]
@@ -106,8 +106,8 @@ Columns in the output tsv file:
 - breadth5 [% of positions in the reference genome covered by a minimum of 5 reads]
 - breadth10 [% of positions in the reference genome covered by a minimum of 10 reads]
 
-
-
+## Change #6
+Here, I ask for changes in the visualisation of mapping_statistics.
 
 
 
