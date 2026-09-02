@@ -112,7 +112,8 @@ In the first row, three plots:
 
 - three histograms. The first one with read length distribution, the second with edit distances and the third with read ANI. For all of them, plot median and mean values within each plot, but don't make dashed lines. 
 
-In the second row, one plot presenting horizontal coverage, similar to the one from the previous version, but in a new version add a slightly transparent histogram with 1000bp bins presenting number of reads mapped in a specific genomic region and each bin should be colored by the mean ANI of reads mapped to the corresponding bins. I need a visual representation if some specific genomic regions are more distantly related to the reference than others. 
+In the second row, one plot presenting horizontal coverage:
+- similar to the one from the previous version, but in a new version add a slightly transparent histogram in the background with 1000bp bins presenting the number of reads mapped in a specific genomic region, and each bin should be colored by the mean ANI of reads mapped to the specific bin. I need a visual representation to show if some specific genomic regions are more distantly related to the reference than others. 
 
 ... here about adding genomic visualisation with functional annotation.  
 
