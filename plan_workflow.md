@@ -19,6 +19,7 @@ input/calcy_complete_reoriented.panman
 input/calcy_complete_reoriented.panman.idx
 input/metagenome_assembly-Eisenhofer2020.tsv
 input/metagenome_assembly-Ottoni2021.tsv
+input/metagenome_assembly-Warinner2014.tsv
 ```
 
 Expected meanings:
