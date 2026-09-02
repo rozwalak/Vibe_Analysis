@@ -126,7 +126,9 @@ In a new version, it should be a combination of outputs from pyDamage (results/W
 The first column should be "sample" so e.g. SRS473742, then all columns from SRS473742_stats.tsv and from pydamage_results only "CtoT-0","CtoT-1","CtoT-2","CtoT-3","CtoT-4","CtoT-5","CtoT-6","CtoT-7","CtoT-8","CtoT-9","predicted_accuracy","pvalue".
 
 ## Change #8
-If many projects are analysed and multiple output folders exist in /results/ e.g. /results/Warinner2014 and /results/Ottoni2021, then as a last step concatenate all summary files e.g. Warinner2014_summary.tsv and Ottoni2021_summary.tsv into one all_summary.tsv saved to /results
+If many projects are analysed and multiple output folders exist in /results/ e.g. /results/Warinner2014 and /results/Ottoni2021, then as a last step concatenate all summary files e.g. Warinner2014_summary.tsv and Ottoni2021_summary.tsv into one all_summary.tsv saved to /results. all_summary.tsv should contain all information, including samples where, e.g., the number of mapped reads is very low or zero. 
+
+Next, filter all_summary.tsv for samples with minimum breadth=50% and those samples that pass this threshold, from all folders like this results/Warinner2014/SRS473742/panmap/ find consensus sequences such as SRS473742.consensus.fa and combine all fasta files into one per project so e.g. the output fasta will be in results/Warinner2014/Warinner2014_consensus_breadth50.fna, and another one combining consensus fasta files across projects to /results named all_consensus_breadth50.fna
 
 Some ideas: 
 To the coverage plot, add an annotated genome below the plot. To the plot add a slightly transparent histogram filled with mean read ANI in the specific window; it allows you to estimate whether poorly mapped regions also have low read ANI values. 
