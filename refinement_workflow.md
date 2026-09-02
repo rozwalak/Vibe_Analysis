@@ -40,9 +40,9 @@ Ideally, don't create a separate rule; incorporate it into the existing panmap r
 ## Change #4
 Replace MapDamage2 with pyDamage (https://pydamage.readthedocs.io/en/latest/), which is faster. 
 
-Remove mapdamage2 from rules and incorporate pyDamage, for running a command: 
+Remove mapdamage2 from rules and incorporate pyDamage, by running a command: 
 ```
-pydamage --outdir Warinner2014/pydamage analyze Warinner2014/panmap/SRS473742.bam --plot
+pydamage --outdir results/Warinner2014/pydamage analyze results/Warinner2014/panmap/SRS473742.bam --plot
 ```
 Comment: The BAM file must be corrected to include MD tags.
 
@@ -106,8 +106,17 @@ Columns in the output SRS473742_stats.tsv file:
 - breadth10 [% of positions in the reference genome covered by a minimum of 10 reads]
 
 ## Change #6
-Here, I ask for changes in the visualisation of mapping_statistics. In the first version only 
+Here, I ask for changes in the visualisation of mapping_statistics. In the first version, only horizontal coverage (breadth) was visualised. Now I want to combine multiple plots in a single figure. 
 
+In the first row, three plots: 
+
+- three histograms. The first one with read length distribution, the second with edit distances and the third with read ANI. For all of them, plot median and mean values within each plot, but don't make dashed lines. 
+
+In the second row, one plot presenting horizontal coverage, similar to the one from the previous version, but in a new version add a slightly transparent histogram with 1000bp bins presenting number of reads mapped in a specific genomic region and each bin should be colored by the mean ANI of reads mapped to the corresponding bins. I need a visual representation if some specific genomic regions are more distantly related to the reference than others. 
+
+... here about adding genomic visualisation with functional annotation.  
+
+For visualising that, use data generated in mapping_statistics.
 ## Change #7
 Change Warinner2014_summary.tsv
 
