@@ -22,11 +22,10 @@ Add to the current panmap commands:
 ```text
 --trim-start 7 --trim-end 7 
 ```
-It should improve placement to the reference.
 ```text
 --min-depth 3
 ```
-It should improve the quality of the consensus sequence.
+It should improve placement to the reference and quality of the consensus sequence.
 
 ## Change #3
 MD tags are missing from the current panmap/*.bam files, limiting downstream analyses. Add them: 
