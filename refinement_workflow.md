@@ -36,3 +36,35 @@ pydamage --outdir Warinner2014/pydamage analyze Warinner2014/panmap/SRS473742.ba
 Comment: The BAM file must be corrected to include MD tags.
 
 ## Change #4
+Create comprehensive statistics of mapped reads (in bam file), similar to the analysis run by bam-filter (https://github.com/genomewalker/bam-filter). However, due to problems with calculating some values, I would like to re-implement this here instead of running bam-filter.  
+```text
+samtools view -F 2308 Warinner2014/panmap/SRS473742.bam | \
+awk '{
+    cigar=$6
+    nm=-1
+
+    for(i=12;i<=NF;i++)
+        if($i ~ /^NM:i:/) {
+            split($i,a,":")
+            nm=a[3]
+        }
+
+    # Calculate reference/query aligned length from CIGAR
+    len=0
+    while(match(cigar, /[0-9]+[MIDNSHP=X]/)) {
+        op=substr(cigar, RSTART+RLENGTH-1, 1)
+        n=substr(cigar, RSTART, RLENGTH-1)
+
+        if(op=="M" || op=="=" || op=="X")
+            len += n
+
+        cigar=substr(cigar, RSTART+RLENGTH)
+    }
+
+    if(nm >= 0 && len > 0)
+        print $1, len, nm, (1-nm/len)*100
+}' > Warinner2014/panmap/SRS473742_read_stats.tsv
+```
+This is just an example. Adapt it to produce expected results, described below: 
+
+
