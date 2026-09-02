@@ -1,8 +1,10 @@
-# First refinement of plan_panmap_workflow.md
+# First refinement of plan_workflow.md
 
-First: Overview of the pipeline, scripts and output files. 
+First: Read and understand the pipeline, scripts and output files. 
 
 ## Details to change/add
+
+## Change #1
 In config.yaml: 
 ```text
 # The supplied files are tab-delimited despite their .csv extension.
@@ -13,3 +15,5 @@ projects:
 ```
 - Read both .csv and .tsv files (remove # The supplied files are tab-delimited despite their .csv extension.)
 - Library type should be defined for a specific sample in the spreadsheet, without an extra parameter here (library_type: single). Column R0 is filled for single-end libraries, and columns R1 and R2 for paired-end libraries.
+
+## Change #2
