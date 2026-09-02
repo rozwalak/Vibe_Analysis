@@ -1,4 +1,4 @@
-<img width="503" height="17" alt="image" src="https://github.com/user-attachments/assets/77a53e0f-8fea-4891-be8a-702f81420e8e" /># First refinement of plan_workflow.md
+# First refinement of plan_workflow.md
 
 First: Read and understand the current pipeline, scripts and output files. 
 
@@ -72,6 +72,7 @@ This is just an example. Adapt it to produce the expected results described belo
 
 Columns in the output tsv file: 
 - reference [ID of the reference genome]
+- reference_length [length of the reference genome]
 - n_reads [aligned reads in the bam file]
 - read_length_mean [mean of all read lengths]
 - read_length_std [read length standard deviation]
@@ -87,10 +88,18 @@ Columns in the output tsv file:
 - bases_covered_depth3 [number of positions in the reference genomes covered by a minimum of 3 reads, something like that was previously calculated in the workflow to make sumary statistics]
 - bases_covered_depth5 [number of positions in the reference genomes covered by a minimum of 5 reads, similar to above]
 - bases_covered_depth10 [number of positions in the reference genomes covered by a minimum of 10 reads, similar to above]
+- coverage_mean [mean coverage value for mapped reads]
+- breadth [% of positions in the reference genome covered by a minimum of 1 read]
+- breadth3 [% of positions in the reference genome covered by a minimum of 3 reads]
+- breadth5 [% of positions in the reference genome covered by a minimum of 5 reads]
+- breadth10 [% of positions in the reference genome covered by a minimum of 10 reads]
 
 
 
 
 
+
+Some ideas: 
+To the coverage plot, add an annotated genome below the plot. To the plot add a slightly transparent histogram filled with mean read ANI in the specific window; it allows you to estimate whether poorly mapped regions also have low read ANI values. 
 
 
