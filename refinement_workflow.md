@@ -17,6 +17,13 @@ projects:
 - Library type should be defined for a specific sample in the spreadsheet, without an extra parameter here (library_type: single). Column R0 is filled for single-end libraries, and columns R1 and R2 for paired-end libraries.
 
 ## Change #2
+
+Add to the current panmap command: 
+```text
+--trim-start 5 --trim-end 5 
+```
+It should improve placement to the reference.
+## Change #3
 MD tags are missing from the current panmap/*.bam files, limiting downstream analyses. Add them: 
 
 ```
@@ -24,9 +31,9 @@ samtools calmd -@ 8 -b Warinner2014/panmap/SRS473742.bam Warinner2014/panmap/SRS
 mv SRS473742.tmp.bam SRS473742.bam && \
 samtools index -@ 8 SRS473742.bam
 ```
-Ideally, do not create a separate rule but incorporate it into existing panmap rule if possible. If it's not a good solution, create a new rule in snakemake.
+Ideally, do not create a separate rule but incorporate it into the existing panmap rule if possible. If it's not a good solution, create a new rule in snakemake.
 
-## Change #3
+## Change #4
 Replace MapDamage2 with pyDamage (https://pydamage.readthedocs.io/en/latest/), which is faster. 
 
 Remove mapdamage2 from rules and incorporate pyDamage, for running a command: 
@@ -35,7 +42,7 @@ pydamage --outdir Warinner2014/pydamage analyze Warinner2014/panmap/SRS473742.ba
 ```
 Comment: The BAM file must be corrected to include MD tags.
 
-## Change #4
+## Change #5
 Create comprehensive statistics of mapped reads (in bam file), similar to the analysis run by bam-filter (https://github.com/genomewalker/bam-filter). However, due to problems with calculating some values, I would like to re-implement this here instead of running bam-filter.  
 
 In the current version, this analysis is partially run in the coverage rule. The coverage rule should be expanded and renamed to "mapping_statistics". However, the coverage plot and covered_positions.tsv should be generated. 
@@ -84,11 +91,11 @@ Columns in the output tsv file:
 - read_ani_mean [mean of average nucleotide identities]
 - read_ani_std [standard deviation of average nucleotide identities]
 - read_ani_median [median of average nucleotide identities]
+- coverage_mean [mean coverage value for mapped reads]
 - bases_covered [number of positions in the reference genomes covered by a minimum of 1 read]
 - bases_covered_depth3 [number of positions in the reference genomes covered by a minimum of 3 reads, something like that was previously calculated in the workflow to make sumary statistics]
 - bases_covered_depth5 [number of positions in the reference genomes covered by a minimum of 5 reads, similar to above]
 - bases_covered_depth10 [number of positions in the reference genomes covered by a minimum of 10 reads, similar to above]
-- coverage_mean [mean coverage value for mapped reads]
 - breadth [% of positions in the reference genome covered by a minimum of 1 read]
 - breadth3 [% of positions in the reference genome covered by a minimum of 3 reads]
 - breadth5 [% of positions in the reference genome covered by a minimum of 5 reads]
