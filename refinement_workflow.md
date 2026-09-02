@@ -1,4 +1,4 @@
-# First refinement of plan_workflow.md
+<img width="503" height="17" alt="image" src="https://github.com/user-attachments/assets/77a53e0f-8fea-4891-be8a-702f81420e8e" /># First refinement of plan_workflow.md
 
 First: Read and understand the current pipeline, scripts and output files. 
 
@@ -37,6 +37,9 @@ Comment: The BAM file must be corrected to include MD tags.
 
 ## Change #4
 Create comprehensive statistics of mapped reads (in bam file), similar to the analysis run by bam-filter (https://github.com/genomewalker/bam-filter). However, due to problems with calculating some values, I would like to re-implement this here instead of running bam-filter.  
+
+In the current version, this analysis is partially run in the coverage rule. The coverage rule should be expanded and renamed to "mapping_statistics". However, the coverage plot and covered_positions.tsv should be generated. 
+
 ```text
 samtools view -F 2308 Warinner2014/panmap/SRS473742.bam | \
 awk '{
@@ -65,6 +68,29 @@ awk '{
         print $1, len, nm, (1-nm/len)*100
 }' > Warinner2014/panmap/SRS473742_read_stats.tsv
 ```
-This is just an example. Adapt it to produce expected results, described below: 
+This is just an example. Adapt it to produce the expected results described below: 
+
+Columns in the output tsv file: 
+- reference [ID of the reference genome]
+- n_reads [aligned reads in the bam file]
+- read_length_mean [mean of all read lengths]
+- read_length_std [read length standard deviation]
+- read_length_min [minimum observed read length]
+- read_length_max [maximum observed read length]
+- read_length_median [median observed read length]
+- mapping_quality [example code: samtools view -F 4 input.bam | awk '{sum+=$5; n++} END {if(n>0) print "Mean MAPQ:", sum/n}']
+- edit_distances [mean value of edit distances; however, in "raw" table, the edit distance for each read should be present to calculate the histograms]
+- read_ani_mean [mean of average nucleotide identities]
+- read_ani_std [standard deviation of average nucleotide identities]
+- read_ani_median [median of average nucleotide identities]
+- bases_covered [number of positions in the reference genomes covered by a minimum of 1 read]
+- bases_covered_depth3 [number of positions in the reference genomes covered by a minimum of 3 reads, something like that was previously calculated in the workflow to make sumary statistics]
+- bases_covered_depth5 [number of positions in the reference genomes covered by a minimum of 5 reads, similar to above]
+- bases_covered_depth10 [number of positions in the reference genomes covered by a minimum of 10 reads, similar to above]
+
+
+
+
+
 
 
