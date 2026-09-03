@@ -13,7 +13,7 @@ projects:
     samplesheet: input/metagenome_assembly-Warinner2014.csv
     library_type: single
 ```
-- Read both .csv and .tsv files (remove # The supplied files are tab-delimited despite their .csv extension.)
+- Both .csv and .tsv files should be ok (remove # The supplied files are tab-delimited despite their .csv extension.).
 - Library type should be defined for a specific sample in the spreadsheet, without an extra parameter here (library_type: single). Column R0 is filled for single-end libraries, and columns R1 and R2 for paired-end libraries.
 
 ## Change #2
@@ -25,10 +25,15 @@ Add to the current panmap commands:
 ```text
 --min-depth 3
 ```
-It should improve placement to the reference and quality of the consensus sequence.
+It should improve placement to the reference and the quality of the consensus sequence.
+
+```text
+--force-leaf
+```
+The command above should be optional, with the option off/on in the config.
 
 ## Change #3
-MD tags are missing from the current panmap/*.bam files, limiting downstream analyses. Add them: 
+MD tags are missing from the current panmap/*.bam files, limiting downstream analyses. Add them using this command or similar: 
 
 ```
 samtools calmd -@ 8 -b Warinner2014/panmap/SRS473742.bam Warinner2014/panmap/SRS473742.ref.fa > Warinner2014/panmap/SRS473742.tmp.bam && \
@@ -117,7 +122,7 @@ In the second row, one plot presenting horizontal coverage:
 
 ... here about adding genomic visualisation with functional annotation.  
 
-For visualising that, use data generated in mapping_statistics.
+To visualise that, please use the data generated in mapping_statistics.
 ## Change #7
 Change Warinner2014_summary.tsv
 
@@ -126,9 +131,9 @@ In a new version, it should be a combination of outputs from pyDamage (results/W
 The first column should be "sample" so e.g. SRS473742, then all columns from SRS473742_stats.tsv and from pydamage_results only "CtoT-0","CtoT-1","CtoT-2","CtoT-3","CtoT-4","CtoT-5","CtoT-6","CtoT-7","CtoT-8","CtoT-9","predicted_accuracy","pvalue".
 
 ## Change #8
-If many projects are analysed and multiple output folders exist in /results/ e.g. /results/Warinner2014 and /results/Ottoni2021, then as a last step concatenate all summary files e.g. Warinner2014_summary.tsv and Ottoni2021_summary.tsv into one all_summary.tsv saved to /results. all_summary.tsv should contain all information, including samples where, e.g., the number of mapped reads is very low or zero. 
+If many projects are analysed and multiple output folders exist in /results/ e.g. /results/Warinner2014 and /results/Ottoni2021, then, as a last step, concatenate all summary files e.g. Warinner2014_summary.tsv and Ottoni2021_summary.tsv into one all_summary.tsv saved to /results folder. all_summary.tsv should contain all information, including samples where, e.g., the number of mapped reads is very low or zero. 
 
-Next, filter all_summary.tsv for samples with minimum breadth=50% and those samples that pass this threshold, from all folders like this results/Warinner2014/SRS473742/panmap/ find consensus sequences such as SRS473742.consensus.fa and combine all fasta files into one per project so e.g. the output fasta will be in results/Warinner2014/Warinner2014_consensus_breadth50.fna, and another one combining consensus fasta files across projects to /results named all_consensus_breadth50.fna
+Next, filter all_summary.tsv for samples with minimum breadth3>50% and samples that pass this threshold, (from folders like results/Warinner2014/SRS473742/panmap/) should find consensus sequences such as SRS473742.consensus.fa and combine all fasta files into one per project so e.g. the output fasta will be in results/Warinner2014/Warinner2014_consensus_breadth50.fna, and another one combining consensus fasta files across projects to /results folder and named all_consensus_breadth50.fna. 
 
 Some ideas: 
 To the coverage plot, add an annotated genome below the plot. To the plot add a slightly transparent histogram filled with mean read ANI in the specific window; it allows you to estimate whether poorly mapped regions also have low read ANI values. 
