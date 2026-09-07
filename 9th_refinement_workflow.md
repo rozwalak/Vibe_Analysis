@@ -213,6 +213,14 @@ Do not otherwise reorder, rename, remove, or alter summary columns unless necess
 
 The pydamage values themselves, calculations, formatting, and meaning must remain unchanged. Only their position in the output columns should change.
 
+## Also fix the rerun CSV naming convention:
+
+* The current `csv_to_rerun.csv` naming is too generic.
+* It should be project-specific and named **`{project}_to_rerun.csv`**.
+* Every rule/script/path that creates, reads, references, or expects `csv_to_rerun.csv` should be inspected and updated consistently.
+* The `{project}` value must come from the existing project identifier used by the workflow; do not invent a second naming convention.
+* Make sure different projects cannot overwrite each other's rerun CSV files.
+* Do not otherwise change the contents or semantics of the rerun CSV.
 ---
 
 ### Constraints
